@@ -1,0 +1,67 @@
+Loan Delinquency Workflow
+Stage 1: Briefly show the dataset and the different columns and their relevance [loans.csv](loans.csv)
+
+I’ll inspect loans.csv to summarize its structure, sample records, and what each column represents. [EOL]
+Stage 1: Dataset Overview
+Dataset: [loans.csv](D:/JHU_VSC_Git_folder/Loan_delinquency_01/loans.csv)
+- Rows: 10,000 loan applications
+- Columns: 40
+- Target: target_delinquent
+  - 0: Non-delinquent — 9,822 records
+  - 1: Delinquent — 178 records
+- Data types: Numeric and categorical
+- Notable missing data: Joint applicant fields, delinquency-history fields, and emp_length.
+
+Sample records
+
+| emp_length | state | homeownership | annual_income | debt_to_income | loan_purpose | loan_amount | term | target_delinquent |
+|---:|---|---|---:|---:|---|---:|---:|---:|
+| 3 | NJ | MORTGAGE | 90,000 | 18.01 | moving | 28,000 | 60 | 0 |
+| 10 | HI | RENT | 40,000 | 5.04 | debt_consolidation | 5,000 | 36 | 0 |
+| 3 | WI | RENT | 40,000 | 21.15 | other | 2,000 | 36 | 0 |
+
+Column relevance
+| Column(s) | Relevance |
+|---|---|
+| `emp_length` | Applicant’s employment length; indicates employment stability. |
+| `state` | Applicant’s location; may capture regional economic differences. |
+| `homeownership` | Housing status, such as rent or mortgage; indicates financial stability and obligations. |
+| `annual_income` | Individual annual income; measures repayment capacity. |
+| `debt_to_income` | Individual debt-to-income ratio; higher values generally indicate greater repayment risk. |
+| `annual_income_joint` | Combined income for joint applications. |
+| `debt_to_income_joint` | Combined debt-to-income ratio for joint applications. |
+| `delinq_2y` | Number of delinquencies in the past two years. |
+| `months_since_last_delinq` | Time since the most recent delinquency. |
+| `earliest_credit_line` | Year the applicant first opened a credit account; approximates credit history length. |
+| `inquiries_last_12m` | Number of recent credit inquiries; may indicate demand for credit. |
+| `total_credit_lines` | Total number of credit accounts. |
+| `open_credit_lines` | Number of currently open credit accounts. |
+| `total_credit_limit` | Total available credit across accounts. |
+| `total_credit_utilized` | Credit currently being used; high utilization may indicate risk. |
+| `num_collections_last_12m` | Recent collection events. |
+| `num_historical_failed_to_pay` | Historical payment failures. |
+| `months_since_90d_late` | Time since the last payment at least 90 days late. |
+| `current_accounts_delinq` | Number of currently delinquent accounts. |
+| `total_collection_amount_ever` | Total amount ever sent to collections. |
+| `current_installment_accounts` | Number of active installment accounts. |
+| `accounts_opened_24m` | New accounts opened during the last 24 months. |
+| `months_since_last_credit_inquiry` | Recency of the latest credit inquiry. |
+| `num_satisfactory_accounts` | Number of accounts with satisfactory payment history. |
+| `num_accounts_120d_past_due` | Accounts that are 120 or more days past due. |
+| `num_accounts_30d_past_due` | Accounts that are 30 or more days past due. |
+| `num_active_debit_accounts` | Number of active debit accounts. |
+| `total_debit_limit` | Total debit-account limit. |
+| `num_total_cc_accounts` | Total number of credit-card accounts. |
+| `num_open_cc_accounts` | Number of open credit-card accounts. |
+| `num_cc_carrying_balance` | Credit cards currently carrying a balance. |
+| `num_mort_accounts` | Number of mortgage accounts. |
+| `account_never_delinq_percent` | Percentage of accounts that have never been delinquent. |
+| `tax_liens` | Number of tax liens. |
+| `public_record_bankrupt` | Number of public bankruptcy records. |
+| `loan_purpose` | Reason for borrowing, such as debt consolidation or moving. |
+| `application_type` | Whether the application is individual or joint. |
+| `loan_amount` | Amount requested; affects repayment burden. |
+| `term` | Loan duration in months; longer terms may reduce installments but increase total interest. |
+| `target_delinquent` | Prediction target indicating whether the loan became delinquent. |
+
+The dataset is suitable for a loan-delinquency classification model, but the target is highly imbalanced: only 1.78% of applications are delinquent.

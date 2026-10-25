@@ -1,0 +1,23 @@
+{
+  "zero_gain_feature_count": 9,
+  "zero_gain_features": [
+    "num_collections_last_12m",
+    "months_since_90d_late_never",
+    "current_accounts_delinq",
+    "num_accounts_30d_past_due",
+    "loan_purpose_renewable_energy",
+    "application_type_joint",
+    "application_type_individual",
+    "loan_purpose_vacation",
+    "loan_purpose_small_business"
+  ],
+  "pruning_used": false,
+  "selected_feature_count": 76,
+  "chosen_calibration": "isotonic",
+  "chosen_threshold": 0.06557376682758331,
+  "optional_models": {
+    "lightgbm": "unavailable: ModuleNotFoundError",
+    "catboost": "unavailable: ModuleNotFoundError"
+  },
+  "test_used_for_selection": false
+}

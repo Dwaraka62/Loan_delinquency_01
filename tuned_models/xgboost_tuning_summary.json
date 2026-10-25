@@ -1,0 +1,14 @@
+{
+  "cv_best_pr_auc": 0.038422202809829005,
+  "validation_metrics_threshold_0.5": {
+    "roc_auc": 0.5821452817379498,
+    "pr_auc": 0.02776918981143357,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  "scale_pos_weight": 55.0,
+  "n_iter": 12,
+  "cv_folds": 3,
+  "test_used": false
+}
